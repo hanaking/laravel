@@ -7,7 +7,7 @@ node("master") {
         }
 
         stage('Install dependencies'){
-             sh "composer install"
+             // sh "composer install"
         }
 
         stage('test') {
