@@ -11,7 +11,7 @@ node("master") {
         }
 
         stage('test') {
-             sh "./vendor/bin/phpunit"
+             // sh "./vendor/bin/phpunit"
         }
 
         stage('git'){
