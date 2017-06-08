@@ -16,8 +16,7 @@ node("master") {
               sh " ./vendor/bin/phpunit"
         }
         stage('behat') {
-          //     sh "./vendor/bin/behat -c ./public/behat/behat.yml"
-          sh "./vendor/bin/behat -c ./public/behat/behat.yml -p ${env.BEHAT_PROFILE} --colors -f pretty --strict"
+             sh "./vendor/bin/behat"
         }
         stage('documentation') {
             sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
