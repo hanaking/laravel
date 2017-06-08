@@ -16,11 +16,19 @@ node("master") {
         stage('deploiement'){
         //  if test phpunit oki alor deploiement
 
-            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cd435227-8d21-43c6-ad40-7a24dff92abd', usernameVariable: 'FTP_USERNAME', passwordVariable: 'FTP_PASSWORD']]) {
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '12840de8-64c4-4f14-a675-ddeab6631ebd', usernameVariable: 'FTP_USERNAME', passwordVariable: 'FTP_PASSWORD']]) {
 
             if(IS_MODIFIED) {
-                sh('git ftp push --user ${FTP_USERNAME} --passwd ${FTP_PASSWORD} ftp://192.168.33.20/Dev/')
-            }
+              sh "git config git-ftp.url ftp://192.168.33.20/Dev/"
+              sh "git config git-ftp.user ${FTP_USERNAME}"
+              sh "git config git-ftp.password ${FTP_PASSWORD}"
+
+            # Upload all files
+              sh "git ftp init"
+
+              sh "git ftp push"
+
+
         }
 
 

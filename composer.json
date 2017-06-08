@@ -10,7 +10,11 @@
         "laravel/tinker": "~1.0"
     },
     "require-dev": {
+        "behat/behat": "^3.3",
+        "behat/mink": "^1.7",
+        "behat/mink-extension": "^2.2",
         "fzaninotto/faker": "~1.4",
+        "laracasts/behat-laravel-extension": "^1.0",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
     },
