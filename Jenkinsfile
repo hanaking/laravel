@@ -18,20 +18,17 @@ node("master") {
 
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '12840de8-64c4-4f14-a675-ddeab6631ebd', usernameVariable: 'FTP_USERNAME', passwordVariable: 'FTP_PASSWORD']]) {
 
-            if(IS_MODIFIED) {
-              sh "git config git-ftp.url ftp://192.168.33.20/Dev/"
-              sh "git config git-ftp.user ${FTP_USERNAME}"
-              sh "git config git-ftp.password ${FTP_PASSWORD}"
-              sh "git ftp init"
-              sh "git ftp push"
+              if(IS_MODIFIED) {
+                sh "git config git-ftp.url ftp://192.168.33.20/Dev/"
+                sh "git config git-ftp.user ${FTP_USERNAME}"
+                sh "git config git-ftp.password ${FTP_PASSWORD}"
+                sh "git ftp init"
+                sh "git ftp push"
 
+              }
+            }
 
         }
-
-
-
-
- }
 
     } catch(error) {
         throw error
