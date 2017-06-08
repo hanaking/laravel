@@ -19,7 +19,7 @@ node("master") {
             sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
         }
         stage('metrics') {
-            sh './vendor/bin/phpmetrics --report-html=public/metrics  /app'
+            sh 'php ./vendor/bin/phpmetrics --report-html=./public/metrics ./app'
         }
         stage('mise à jour git'){
           sh 'git add -A && git commit -m "documentation"'
