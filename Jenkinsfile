@@ -9,14 +9,14 @@ node("master") {
         }
 
         stage('Install dependencies'){
-             // sh "composer install"
+              sh "composer update"
         }
 
         stage('test') {
-             // sh "./vendor/bin/phpunit"
+             sh "./vendor/bin/phpunit"
         }
         stage('behat') {
-              sh "./vendor/bin/behat"
+               sh "./vendor/bin/behat"
         }
         stage('documentation') {
             sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
