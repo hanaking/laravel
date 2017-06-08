@@ -13,9 +13,11 @@ node("master") {
         }
 
         stage('test') {
-             // sh "./vendor/bin/phpunit"
+             // sh " ./bin/phpunit -c ./public/phpunit/phpunit.xml"
         }
-
+        //stage('behat') {
+          //     sh "./vendor/bin/behat -c ./public/behat/behat.xml"
+        //}
         stage('documentation') {
             sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
         }
