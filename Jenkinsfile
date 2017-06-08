@@ -22,10 +22,7 @@ node("master") {
               sh "git config git-ftp.url ftp://192.168.33.20/Dev/"
               sh "git config git-ftp.user ${FTP_USERNAME}"
               sh "git config git-ftp.password ${FTP_PASSWORD}"
-
-            # Upload all files
               sh "git ftp init"
-
               sh "git ftp push"
 
 
