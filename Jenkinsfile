@@ -15,7 +15,7 @@ node("master") {
         }
         stage('documentation') {
                 sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
-
+                sh "git add -A && git commit -m 'documentation' && git push origin master"
         }
         stage('deploiement'){
         //  if test phpunit oki alor deploiement
