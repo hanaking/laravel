@@ -50,7 +50,7 @@
 <div class="page">
     <div class="content">
         <div class="report-details">
-            Created at 2017-06-08 13:56:27        , with PHPMetrics v2.2.0 (<a href="https://twitter.com.Halleck45">Jean-François Lépine</a>).
+            Created at 2017-06-08 14:40:14        , with PHPMetrics v2.2.0 (<a href="https://twitter.com.Halleck45">Jean-François Lépine</a>).
         </div>
 
 
@@ -221,16 +221,40 @@
 
     var relations = [
     {
-        "name": "\\App\\Http\\Controllers\\Auth\\ForgotPasswordController",
+        "name": "\\App\\Http\\Kernel",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Http\\Kernel"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Http\\Kernel",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\Controller",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Routing\\Controller",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Http\\Controllers\\HomeController",
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller"
         ]
     },
     {
-        "name": "\\App\\Http\\Controllers\\Controller",
+        "name": "\\App\\Http\\Controllers\\Auth\\LoginController",
         "size": 3000,
-        "relations": []
+        "relations": [
+            "\\App\\Http\\Controllers\\Controller"
+        ]
     },
     {
         "name": "\\App\\Http\\Controllers\\Auth\\RegisterController",
@@ -261,35 +285,11 @@
         ]
     },
     {
-        "name": "\\App\\Http\\Controllers\\Auth\\LoginController",
+        "name": "\\App\\Http\\Controllers\\Auth\\ForgotPasswordController",
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller"
         ]
-    },
-    {
-        "name": "\\Illuminate\\Routing\\Controller",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Http\\Controllers\\HomeController",
-        "size": 3000,
-        "relations": [
-            "\\App\\Http\\Controllers\\Controller"
-        ]
-    },
-    {
-        "name": "\\App\\Http\\Middleware\\VerifyCsrfToken",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken"
-        ]
-    },
-    {
-        "name": "\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "\\App\\Http\\Middleware\\TrimStrings",
@@ -304,14 +304,14 @@
         "relations": []
     },
     {
-        "name": "\\App\\Http\\Middleware\\EncryptCookies",
+        "name": "\\App\\Http\\Middleware\\VerifyCsrfToken",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Cookie\\Middleware\\EncryptCookies"
+            "\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken"
         ]
     },
     {
-        "name": "\\Illuminate\\Cookie\\Middleware\\EncryptCookies",
+        "name": "\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken",
         "size": 3000,
         "relations": []
     },
@@ -334,93 +334,32 @@
         "relations": []
     },
     {
-        "name": "\\App\\Http\\Kernel",
+        "name": "\\App\\Http\\Middleware\\EncryptCookies",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Foundation\\Http\\Kernel"
+            "\\Illuminate\\Cookie\\Middleware\\EncryptCookies"
         ]
     },
     {
-        "name": "\\Illuminate\\Foundation\\Http\\Kernel",
+        "name": "\\Illuminate\\Cookie\\Middleware\\EncryptCookies",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Providers\\AppServiceProvider",
+        "name": "\\App\\Console\\Kernel",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Support\\ServiceProvider"
+            "\\Illuminate\\Foundation\\Console\\Kernel",
+            "\\Illuminate\\Console\\Scheduling\\Schedule"
         ]
     },
     {
-        "name": "\\Illuminate\\Support\\ServiceProvider",
+        "name": "\\Illuminate\\Foundation\\Console\\Kernel",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Providers\\AuthServiceProvider",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider"
-        ]
-    },
-    {
-        "name": "\\Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Providers\\BroadcastServiceProvider",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Support\\ServiceProvider",
-            "\\Illuminate\\Support\\Facades\\Broadcast"
-        ]
-    },
-    {
-        "name": "\\Illuminate\\Support\\Facades\\Broadcast",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Providers\\RouteServiceProvider",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
-            "\\parent",
-            "\\Illuminate\\Support\\Facades\\Route"
-        ]
-    },
-    {
-        "name": "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\parent",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Illuminate\\Support\\Facades\\Route",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Providers\\EventServiceProvider",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
-            "\\parent"
-        ]
-    },
-    {
-        "name": "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Illuminate\\Foundation\\Auth\\User",
+        "name": "\\Illuminate\\Console\\Scheduling\\Schedule",
         "size": 3000,
         "relations": []
     },
@@ -445,25 +384,86 @@
         "relations": []
     },
     {
+        "name": "\\parent",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\Illuminate\\Auth\\AuthenticationException",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Console\\Kernel",
+        "name": "\\App\\Providers\\BroadcastServiceProvider",
         "size": 3000,
         "relations": [
-            "\\Illuminate\\Foundation\\Console\\Kernel",
-            "\\Illuminate\\Console\\Scheduling\\Schedule"
+            "\\Illuminate\\Support\\ServiceProvider",
+            "\\Illuminate\\Support\\Facades\\Broadcast"
         ]
     },
     {
-        "name": "\\Illuminate\\Foundation\\Console\\Kernel",
+        "name": "\\Illuminate\\Support\\ServiceProvider",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\Illuminate\\Console\\Scheduling\\Schedule",
+        "name": "\\Illuminate\\Support\\Facades\\Broadcast",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\AppServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Support\\ServiceProvider"
+        ]
+    },
+    {
+        "name": "\\App\\Providers\\EventServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
+            "\\parent"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\AuthServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Providers\\RouteServiceProvider",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+            "\\parent",
+            "\\Illuminate\\Support\\Facades\\Route"
+        ]
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Support\\Facades\\Route",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Illuminate\\Foundation\\Auth\\User",
         "size": 3000,
         "relations": []
     }
