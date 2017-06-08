@@ -16,7 +16,7 @@ node("master") {
               sh " ./vendor/bin/phpunit"
         }
         stage('behat') {
-          //   sh "./vendor/bin/behat"
+             sh "./vendor/bin/behat --format junit --out ./public/behat"
         }
         stage('documentation') {
             sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
