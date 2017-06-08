@@ -13,7 +13,7 @@ node("master") {
         }
 
         stage('test') {
-             sh "./vendor/bin/phpunit"
+             // sh "./vendor/bin/phpunit"
         }
         stage('behat') {
                sh "./vendor/bin/behat"
