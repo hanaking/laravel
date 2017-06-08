@@ -9,7 +9,7 @@ node("master") {
         }
 
         stage('Install dependencies'){
-              sh "composer update"
+              sh "composer install"
         }
 
         stage('test') {
