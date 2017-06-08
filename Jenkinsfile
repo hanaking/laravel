@@ -16,6 +16,7 @@ node("master") {
               sh " ./vendor/bin/phpunit"
         }
         stage('behat') {
+        sh 'php artisan config:cache'
              sh "./vendor/bin/behat"
         }
         stage('documentation') {
