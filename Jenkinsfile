@@ -15,15 +15,7 @@ node("master") {
         }
         stage('documentation') {
                 sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: WORKSPACE+'/public/documentations',
-                    reportFiles: 'index.html',
-                    reportName: 'PHPDocumentor Report',
-                    reportTitles: ''
-                ])
+
         }
         stage('deploiement'){
         //  if test phpunit oki alor deploiement
