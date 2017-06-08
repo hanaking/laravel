@@ -13,7 +13,7 @@ node("master") {
         }
 
         stage('test') {
-              sh " ./bin/phpunit -c ./public/phpunit/phpunit.xml"
+              sh " ./vendor/bin/phpunit"
         }
         stage('behat') {
           //     sh "./vendor/bin/behat -c ./public/behat/behat.yml"
