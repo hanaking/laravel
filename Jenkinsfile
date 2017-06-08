@@ -13,20 +13,20 @@ node("master") {
         stage('test') {
              // sh "./vendor/bin/phpunit"
         }
+        stage('deploiement'){
+        //  if test phpunit oki alor deploiement
 
-        stage('git'){
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'cd435227-8d21-43c6-ad40-7a24dff92abd', usernameVariable: 'FTP_USERNAME', passwordVariable: 'FTP_PASSWORD']]) {
 
-            GIT_MERGE = sh(returnStdout: true, script: 'git merge origin/dev').trim()
-
-            if (GIT_MERGE != "Already up-to-date.") {
-               IS_MODIFIED = true
-
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '6ded69f4-030c-4cf1-b82b-39b744a0063f', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
-
-                    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/hanaking/laravel.gi')
-                }
+            if(IS_MODIFIED) {
+                sh('git ftp push --user ${FTP_USERNAME} --passwd ${FTP_PASSWORD} ftp://192.168.33.20/Dev/')
             }
         }
+
+
+
+
+ }
 
     } catch(error) {
         throw error
