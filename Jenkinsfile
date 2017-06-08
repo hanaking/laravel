@@ -13,6 +13,10 @@ node("master") {
         stage('test') {
              // sh "./vendor/bin/phpunit"
         }
+        stage('documentation') {
+                sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
+
+        }
         stage('deploiement'){
         //  if test phpunit oki alor deploiement
 
@@ -31,6 +35,7 @@ node("master") {
             }
 
         }
+
 
     } catch(error) {
         throw error
