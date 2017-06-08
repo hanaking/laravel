@@ -3,6 +3,8 @@ node("master") {
         def IS_Tested = false
 
         stage('Checkout') {
+            sh 'git config --global user.email "stephane.guillaume71@gmail.com"'
+            sh 'git config --global user.name "hanaking"'
             git credentialsId: '6ded69f4-030c-4cf1-b82b-39b744a0063f', url: 'https://github.com/hanaking/laravel.git', branch: 'master'
         }
 
@@ -16,8 +18,8 @@ node("master") {
         stage('documentation') {
             sh('php phpDocumentor.phar -d app -t public/documentations --template="responsive-twig"')
             sh 'git add -A && git commit -m "documentation"'
-            sh 'git config --global user.email "stephane.guillaume71@gmail.com"'
-            sh 'git config --global user.name "hanaking"'
+
+
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '6ded69f4-030c-4cf1-b82b-39b744a0063f', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
                 sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/hanaking/laravel.git')
             }
