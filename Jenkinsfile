@@ -20,7 +20,7 @@ node("master") {
               sh " ./vendor/bin/phpcpd app"
         }
         stage('behat') {
-
+  //  if test phpunit oki alor deploiement
              sh "./vendor/bin/behat"
         }
         stage('documentation') {
