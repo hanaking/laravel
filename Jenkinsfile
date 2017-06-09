@@ -15,8 +15,11 @@ node("master") {
         stage('test') {
               sh " ./vendor/bin/phpunit"
         }
+        stage('PHPCPD') {
+              sh " ./vendor/bin/phpcpd app"
+        }
         stage('behat') {
-        sh 'php artisan config:cache'
+            sh 'php artisan config:cache'
              sh "./vendor/bin/behat"
         }
         stage('documentation') {
@@ -25,6 +28,7 @@ node("master") {
         stage('metrics') {
             sh 'php ./vendor/bin/phpmetrics --report-html=./public/metrics ./app'
         }
+
         stage('mise à jour git'){
           sh 'git add -A && git commit -m "documentation"'
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '6ded69f4-030c-4cf1-b82b-39b744a0063f', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
@@ -42,15 +46,15 @@ node("master") {
                 sh "git config git-ftp.url ftp://192.168.33.20/"
                 sh "git config git-ftp.user ${FTP_USERNAME}"
                 sh "git config git-ftp.password ${FTP_PASSWORD}"
-                // sh "git ftp init"
-                sh "git ftp push"
 
+                try{
+                    sh "git ftp push"
+                }catch(error) {
+                    sh "git ftp init"
+                }
               }
             }
-
         }
-
-
     } catch(error) {
         throw error
     } finally {
