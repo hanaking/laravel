@@ -5,7 +5,7 @@ node("master") {
         stage('Checkout') {
             sh 'git config --global user.email "stephane.guillaume71@gmail.com"'
             sh 'git config --global user.name "hanaking"'
-            git credentialsId: '6ded69f4-030c-4cf1-b82b-39b744a0063f', url: 'https://github.com/hanaking/laravel.git', branch: 'master'
+            git credentialsId: 'b132cde9-73a0-4bbc-9fe4-7404b9575489', url: 'https://github.com/hanaking/laravel.git', branch: 'master'
         }
 
         stage('Install dependencies'){
@@ -32,7 +32,7 @@ node("master") {
 
         stage('mise à jour git'){
           sh 'git add -A && git commit -m "documentation"'
-          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '6ded69f4-030c-4cf1-b82b-39b744a0063f', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'b132cde9-73a0-4bbc-9fe4-7404b9575489', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
               sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/hanaking/laravel.git')
             }
         }
