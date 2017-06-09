@@ -10,16 +10,17 @@ node("master") {
 
         stage('Install dependencies'){
               sh "composer install"
+              sh 'php artisan config:cache'
         }
 
         stage('test') {
               sh " ./vendor/bin/phpunit"
         }
-        stage('PHPCPD') {
+        stage('verif duplicate code') {
               sh " ./vendor/bin/phpcpd app"
         }
         stage('behat') {
-            sh 'php artisan config:cache'
+
              sh "./vendor/bin/behat"
         }
         stage('documentation') {
